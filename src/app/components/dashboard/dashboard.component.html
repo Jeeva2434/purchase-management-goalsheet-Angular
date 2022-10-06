@@ -1,0 +1,136 @@
+<div class="col-md-12 pl-0 dashboard_wrapper">
+    <div class="dashboard_padd">
+        <div class="dash_main">
+            <div class="dash_main_padd">
+                <div class="top">
+                    <div class="top_content d-flex">
+                        <div class="col-md-8 pl-0 head_container">
+                            <div class="d-flex head_block_1 justify-content-between">
+                                <div class="col-md-8 title">
+                                    <div class="main_title">
+                                        <div class="">Monitor the health of</div>
+                                        <div class="">your business</div>
+                                    </div>
+                                    <div class="pt-2 sub-title">
+                                         <div>Control and analyze your data in easiest way</div>
+                                    </div>   
+                                </div>
+                                <div class="col-md-4 filter pl-3">
+                                    <div class="pb-3 filter_container">
+                                        <div class="search_content d-flex justify-content-between">
+                                           <div class="search_field">
+                                               <img class="search_icon "src="./assets/images/magnifying-glass-solid.svg" style="width:20px;height:15px;">
+                                               <div class="pl-1"><input type="text" class="search_input"></div>  
+                                           </div>
+                                           <div class="calendar pl-4">
+                                               <div class="calendar_content">
+                                                   <img class="cal_img" src="./assets/images/calendar-day-solid.svg">
+                                               </div>
+                                           </div>
+                                        </div>
+                                        <div class="filter_options pb-1">
+                                            <div class="options_container">
+                                                <ul class="options">
+                                                    <li *ngFor="let opt of filter"  [ngClass]="opt['isActive'] ? 'active' : ''" (click)="filterSelect(opt,filter)">{{opt['fil_name']}}</li>    
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>       
+                            </div>
+                            <div class="col-md-12 py-4 business_details">
+                                <div class="business_padd">
+                                    <div class="business_content d-flex justify-content-between">
+                                        <div class="p-0 bus_secs bus_data1">
+                                            <div class="bus_secs_padd">
+                                                <div class="bus_secs_top">
+                                                    <div class="text_sec">Views</div>
+                                                    <div><img src="./assets/images/eye-solid.svg" style="width:14px;height:20px;"></div>
+                                                </div>
+                                                <div class="bus_secs_btm d-flex align-items-baseline">
+                                                    <div class="text_sec_big">31</div>
+                                                    <div class="text_sec ml-2">+3 last day</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="p-0 bus_secs bus_data2">
+                                            <div class="bus_secs_padd">
+                                                <div class="bus_secs_top">
+                                                    <div class="text_sec">Clients</div>
+                                                    <div><img src="./assets/images/user-solid.svg" style="width:14px;height:20px;"></div>
+                                                </div>
+                                                <div class="bus_secs_btm d-flex align-items-baseline">
+                                                    <div class="text_sec_big">63</div>
+                                                    <div class="text_sec ml-2">+1 last day</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="p-0 bus_secs bus_data3">
+                                            <div class="bus_secs_padd">
+                                                <div class="bus_secs_top">
+                                                    <div class="text_sec">Purchases</div>
+                                                    <div><img src="./assets/images/check-solid.svg" style="width:14px;height:20px;"></div>
+                                                </div>
+                                                <div class="bus_secs_btm d-flex align-items-baseline">
+                                                    <div class="text_sec_big">10</div>
+                                                    <div class="text_sec ml-2">+1 last day</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4 top_side">
+                            <div class="top_side_padd" style="width:100%;height:318px;">
+                                <div class="img_box d-flex" style="width:100%;height:100%;">
+                                    <!-- <img src="./assets/images/blue-sky-build.jpeg" style="width:100%;height:92%;border-radius: 20px;"> -->
+                                    <img src="{{houseViewingImg}}" style="width:100%;height:92%;border-radius:20px;box-shadow: 0px 0px 6px gray;">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="dash_btm col-md-12 p-0 my-0">
+                    <div class="dash_btm_padd">
+                        <div class="content_btm col-md-12 p-0 d-flex">
+                            <div class="col-md-8 profit_area">
+                                <div class="col-md-12 pl-0 py-2 profit_area_padd">
+                                    <div class="pf_title">
+                                        <div class="pf_txt py-2">Total profit</div>
+                                    </div>
+                                    <div class="chart my-4" style="height: 300px;border-radius: 20px;">
+                                        <div class="chart_view">
+                                            <div id="main" class="chart_content"  style="height: 300px;">
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4 top_side">
+                                <div class="col-md-12 pl-0 py-2 list_padd">
+                                    <div class="pd_space" style="height:56px;">
+                                    </div>
+                                    <div class="houses my-4" style="height: 300px;border-radius: 20px;">
+                                        <div class="house_view">
+                                            <div class="house_list">
+                                                <div class="lists mb-3" *ngFor = 'let house of house_list' [ngClass]="house['isActive'] ? 'active' : ''" (click)="houseSelect(house,house_list)">
+                                                    <div class="lists_padd">
+                                                        <img src="{{house.house_img}}" style="width:52px;height:52px;">
+                                                        <div class="list_name mr-2">{{house.house_name}}</div>
+                                                        <div class="percent">{{house.percent}}</div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
