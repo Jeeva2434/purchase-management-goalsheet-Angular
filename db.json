@@ -1,0 +1,29 @@
+{
+  "posts": [
+    {
+      "id": 3,
+      "name": "jeevanandam",
+      "email": "play@g.com",
+      "mobile": "1111111111",
+      "city": "TTN"
+    },
+    {
+      "id": 4,
+      "name": "jeeva",
+      "email": "asd@g.com",
+      "mobile": "1112334342",
+      "city": "TTN"
+    },
+    {
+      "id": 5,
+      "name": "janes",
+      "email": "star@g.com",
+      "mobile": "1111111111",
+      "city": "Covai"
+    }
+  ],
+  "comments": [],
+  "profile": {
+    "name": "typicode"
+  }
+}

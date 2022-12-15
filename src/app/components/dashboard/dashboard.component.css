@@ -94,12 +94,12 @@
 .bus_data1 .bus_secs_padd{
    background-color: #ffc0cb38!important;
    border-radius: 10px;
-   height: 100%;
+   /* height: 100%; */
 }
 .bus_data2 .bus_secs_padd{
     background-color: rgb(231 243 250 / 53%)!important;
     border-radius: 10px;
-    height: 100%;
+    /* height: 100%; */
  }
 .bus_data2{
     border-radius: 10px;
@@ -148,4 +148,45 @@
 }
 .lists_padd img{
     border-radius: 12px;
+}
+@media only screen and (max-width: 767px) {
+ .dashboard_wrapper{
+  padding-right: 0 !important;
+ }
+ .dash_main_padd{
+  display: flex;
+  flex-direction: column;
+ }
+ .head_container{
+  padding-right: 0 !important;
+ }
+ .filter{
+  margin-top: 16px;
+ }
+ .filter_options{
+  padding-bottom: 16px !important;
+  padding-top: 16px;
+ }
+ .options{
+  justify-content: end;
+ }
+ .bus_secs_padd{
+  padding: 16px;
+ } 
+ .main_title div{
+  font-size: 32px;
+ }
+ .bus_secs{
+  width: 100%;
+  height: 30%;
+ }
+ .business_padd{
+  height: 550px;
+ }
+ .business_content{
+  height: 100%;
+ }
+ .bus_secs_btm{
+  justify-content: space-between;
+ }
 }

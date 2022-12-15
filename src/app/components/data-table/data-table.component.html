@@ -1,0 +1,77 @@
+<nav class="navbar sticky-top navbar-dark bg-dark h-100">
+  <div class="container-fluid">
+      <h2 class="text-light my-auto">Purchase Management</h2>
+      <div class="d-flex">
+         <button class="btn btn-success mr-2" (click)="add()" data-toggle="modal" data-target="#exampleModal">Add</button>
+      </div>
+  </div>
+</nav>
+
+<table class="table mt-4">
+  <thead>
+    <tr>
+      <th scope="col">Id</th>
+      <th scope="col">Name</th>
+      <th scope="col">Age</th>
+      <th scope="col">Colour</th>
+      <!-- <th scope="col">City</th> -->
+      <th scope="col">Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let data of alldata">
+      <td>{{data._id}}</td>
+      <td>{{data.name}}</td>
+      <td>{{data.age}}</td>
+      <td>{{data.colour}}</td>
+      <!-- <td>{{data.city}}</td> -->
+      <td>
+        <button class="btn btn-info mr-2" (click)="edit(data)" data-toggle="modal" data-target="#exampleModal">Edit</button>
+        <button class="btn btn-danger" (click)="deleteData(data)">Delete</button>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Purchase Management</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form [formGroup]="formValue">
+          <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" formControlName="name" class="form-control" id="name" aria-describedby="emailHelp" placeholder="Enter your name">
+            <small *ngIf="formValue.get('name')?.invalid && formValue.get('name')?.touched" class="text-danger">Name is Required</small>
+          </div>
+          <div class="form-group">
+            <label for="email">Email address</label>
+            <input type="text" formControlName="age" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Enter your email">
+            <!-- <small *ngIf="formValue.get('email')?.invalid && formValue.get('email')?.touched" class="text-danger">Email is Required</small> -->
+          </div>
+          <div class="form-group">
+            <label for="mobile_no">Mobile_No</label>
+            <input type="text" formControlName="colour" class="form-control" id="mobile_no" aria-describedby="emailHelp" placeholder="Enter your mobile number">
+            <!-- <small *ngIf="formValue.get('mobile')?.invalid && formValue.get('mobile')?.touched" class="text-danger">Mobile number is Required</small> -->
+          </div>
+          <div class="form-group">
+            <!-- <label for="city">city</label> -->
+            <!-- <input type="text" formControlName="city" class="form-control" id="city" aria-describedby="emailHelp" placeholder="Enter your city name"> -->
+            <!-- <small *ngIf="formValue.get('city')?.invalid && formValue.get('city')?.touched" class="text-danger">City is Required</small> -->
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-warning" data-dismiss="modal">Close</button>
+        <button type="button" id="actionAdd" class="btn btn-success" (click)="addData()" [disabled]="formValue.invalid">Add</button>
+        <button type="button" id="actionUpdate" class="btn btn-success" (click)="update()" [disabled]="formValue.invalid">Update</button>
+      </div>
+    </div>
+  </div>
+</div>

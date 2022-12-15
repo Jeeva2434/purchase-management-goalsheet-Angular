@@ -2,13 +2,13 @@
     <div class="wrapper_content">
         <div class="col-12 col-md-12 main ">
             <div class="col-12 col-md-12 d-flex main_content">
-                <div class="col-1 col-md-1 sideBar ">
+                <div class="col-1 col-md-1 d-none d-md-block sideBar ">
                     <div class="col-8 sideBar_content">
-                        <div class="nav_icon_cont active"><img class="nav_icons" src="../assets/images/gauge-high-solid.svg"></div>   
-                        <div class="nav_icon_cont"><img class="nav_icons" src="../assets/images/gear-solid.svg"></div>
+                        <div id='1' class="nav_icon_cont" [routerLink]="['/dashboard']" routerLinkActive="router-link-active" ><img class="nav_icons" src="../assets/images/gauge-high-solid.svg"></div>   
+                        <div id='2' class="nav_icon_cont" [routerLink]="['/dataTable']"><img class="nav_icons" src="../assets/images/dashboard.png"></div>
                     </div>
                 </div>
-                <div class="col-11 py-4 px-2 main_section">
+                <div class="col-12 col-md-11 py-4 px-2 main_section">
                     <div class="col-12 col-md-12 py-3 main_sec_padd">
                         <div class="col-12 col-md-12 display">
                             <router-outlet></router-outlet>
